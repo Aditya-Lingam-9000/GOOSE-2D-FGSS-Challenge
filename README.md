@@ -1,9 +1,11 @@
 # GOOSE-M2F
 
-> **GOOSE-M2F** is a task-specific adaptation of [Mask2Former](https://github.com/facebookresearch/Mask2Former) for the [GOOSE 2D Semantic Segmentation Challenge](https://goose-dataset.de/) — 64-class unstructured outdoor terrain parsing.
+> **GOOSE-M2F** is a task-specific adaptation of [Mask2Former](https://github.com/facebookresearch/Mask2Former) for the [GOOSE 2D Fine Grained Semantic Segmentation Challenge](https://www.codabench.org/competitions/14257) — 64-class unstructured outdoor terrain parsing.
 
-**Official Composite mIoU: 70.08%** (Fine mIoU + Coarse mIoU / 2)
+[**Official Composite mIoU: 70.08% (Fine mIoU + Coarse mIoU / 2**)](https://www.codabench.org/competitions/14257/#/results-tab)
 
+---
+> A complete step-by-step guide for setting up the environment, preparing data, training the model, and running inference on any machine, see [instructions/instructions.md](instructions/instructions.md).
 ---
 
 ## What is GOOSE-M2F?
@@ -128,8 +130,8 @@ goose-m2f/
 ### 1. Setup
 
 ```bash
-git clone https://github.com/your-username/goose-m2f.git
-cd goose-m2f
+git clone https://github.com/Aditya-Lingam-9000/GOOSE-2D-FGSS-Challenge
+cd GOOSE-2D-FGSS-Challenge
 
 conda create -n goose python=3.11 -y && conda activate goose
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
@@ -238,5 +240,3 @@ If you use this work, please cite:
 - **DeepLab**: Chen et al., *Rethinking Atrous Convolution*, TPAMI 2017
 
 ---
-
-> For detailed setup instructions, training tips, and troubleshooting, see [instructions/instructions.md](instructions/instructions.md).

@@ -223,10 +223,10 @@ If you use this work, please cite:
 ```bibtex
 @techreport{goosem2f2025,
   title     = {GOOSE-M2F: Adapting Mask2Former for High-Fidelity,
-               Long-Tailed Semantic Segmentation},
+               Long-Tailed Fine Grained Semantic Segmentation},
   author    = {Team GOOSE},
-  year      = {2025},
-  institution = {ICRA 2025 GOOSE 2D Segmentation Challenge}
+  year      = {2026},
+  institution = {ICRA 2026 GOOSE 2D Fine Grained Segmentation Challenge}
 }
 ```
 

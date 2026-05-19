@@ -1,0 +1,53 @@
+# =============================================================================
+# configs/train_config.yaml — Training Configuration for GOOSE-M2F
+# =============================================================================
+# All hyperparameters for a training session.
+# Override any value via environment variable or command-line arg.
+# =============================================================================
+
+# ── Paths ──────────────────────────────────────────────────────────────────
+data_dir:    "/path/to/goose_dataset"              # Root of goose_2d_train / goose_2d_val
+csv_path:    "/path/to/goose_label_mapping.csv"   # Class label mapping CSV
+cutout_dir:  "/path/to/goose_rare_cutouts"         # Pre-extracted rare-class cutouts
+output_dir:  "outputs/checkpoints/session_01"      # Where checkpoints + charts are saved
+
+# ── Model ──────────────────────────────────────────────────────────────────
+model_name:  "facebook/mask2former-swin-large-cityscapes-semantic"
+num_classes: 64
+num_queries: 200                                   # 200 > 100 for GOOSE's 64 classes
+
+# ── Training Mode ──────────────────────────────────────────────────────────
+mode:              "train"                         # "train" or "resume"
+resume_checkpoint: null                            # Set path if mode=resume
+
+# ── Training Hyperparameters ───────────────────────────────────────────────
+num_epochs:        3
+batch_size:        1
+grad_accum_steps:  16                              # Effective batch = 1 × 16 = 16
+num_workers:       4
+
+# ── Image Size ─────────────────────────────────────────────────────────────
+crop_h: 576
+crop_w: 1152
+
+# ── Learning Rates ─────────────────────────────────────────────────────────
+backbone_lr: 1.0e-5    # Swin-Large backbone (smallest — preserves pretraining)
+decoder_lr:  5.0e-5    # Pixel decoder + transformer decoder + new modules
+weight_decay: 0.03
+warmup_iters: 1000
+max_grad_norm: 5.0
+
+# ── Loss ───────────────────────────────────────────────────────────────────
+aux_weight:     0.4    # Weight of Auxiliary Head CE loss
+label_smoothing: 0.10  # Anti-overfit label smoothing
+db_beta:         0.9999  # Distribution-Balanced loss beta
+cas_thresh:      0.06    # CAS sampler rarity threshold
+
+# ── EMA ────────────────────────────────────────────────────────────────────
+ema_decay: 0.9995
+
+# ── Copy-Paste Augmentation ────────────────────────────────────────────────
+copy_paste_prob: 0.85   # Set 0.0 to disable
+
+# ── Precision ──────────────────────────────────────────────────────────────
+mixed_precision: "fp16"

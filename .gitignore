@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Outputs (large files — do NOT commit)
+outputs/checkpoints/*.pth
+outputs/predictions/
+
+# HuggingFace cache (very large)
+.cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.txt.log
+
+# Data (too large for git — use DVC or store externally)
+data/raw/
+data/processed/
+
+# Charts (regenerated during training)
+outputs/checkpoints/**/*.png
